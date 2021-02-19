@@ -57,3 +57,12 @@ lint: ## Analyze the code with eslint and prettier
 .PHONY: format
 format: ## Troubleshoot errors with eslint and prettier
 	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T marcosnavarro-app sh -c "npm run format"
+
+##@ Tests
+.PHONY: test
+test: ## Run test application
+	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T marcosnavarro-app sh -c "npm t"
+
+.PHONY: test_watch
+test_watch: ## Run test application in watch mode
+	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T marcosnavarro-app sh -c "npm t -- --watchAll=true"
