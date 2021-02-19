@@ -1,0 +1,7 @@
+.git/
+.gitignore
+.next/
+.dockerignore
+docker/
+!docker/nginx/
+node_modules/
