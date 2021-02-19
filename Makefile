@@ -48,3 +48,12 @@ logs: ## View logs { s: [app|web] }
 .PHONY: bash
 bash: ## Run shell { s: [app|web] }
 	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T ${s} sh
+
+##@ Code analizers
+.PHONY: lint
+lint: ## Analyze the code with eslint and prettier
+	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T marcosnavarro-app sh -c "npm run lint"
+
+.PHONY: format
+format: ## Troubleshoot errors with eslint and prettier
+	docker-compose -f ${FILE_DOCKER_COMPOSE} exec -T marcosnavarro-app sh -c "npm run format"
