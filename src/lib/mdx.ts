@@ -1,5 +1,6 @@
 import fs from 'fs';
 import matter from 'gray-matter';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import path from 'path';
 
@@ -11,10 +12,7 @@ export type Metadata = {
   slug: string;
 };
 
-export type Source = {
-  compiledSource: string;
-  scope: object;
-};
+export type Source = MDXRemoteSerializeResult;
 
 export type Post = {
   metadata: Metadata;
